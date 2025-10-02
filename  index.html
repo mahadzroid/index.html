@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOZA TANZANIA SAFARIS - Premium Wildlife Experiences</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS VARIABLES & RESET ===== */
+        :root {
+            --primary: #d4a017;
+            --primary-dark: #b8860b;
+            --secondary: #1a472a;
+            --secondary-dark: #0f301b;
+            --accent: #8b4513;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #333333;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+            --gradient: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            --gradient-gold: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            background: var(--gradient-gold);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(212, 160, 23, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 160, 23, 0.4);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: var(--gradient);
+            box-shadow: 0 4px 15px rgba(26, 71, 42, 0.3);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 8px 25px rgba(26, 71, 42, 0.4);
+        }
+
+        .btn i {
+            margin-left: 8px;
+        }
+
+        /* ===== SECURITY BADGE ===== */
+        .security-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--white);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .security-badge i {
+            color: #28a745;
+            font-size: 1.5rem;
+        }
+
+        .security-badge span {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background: rgba(26, 71, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header.scrolled {
+            background: var(--secondary);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2.2rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo h1 {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .logo p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4a017' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            animation: backgroundMove 20s linear infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100px, -100px); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== WILDLIFE SECTION ===== */
+        .wildlife {
+            background: var(--white);
+        }
+
+        .wildlife-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .animal-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .animal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .animal-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .animal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .animal-card:hover .animal-image img {
+            transform: scale(1.1);
+        }
+
+        .animal-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .animal-name h3 {
+            color: var(--white);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .animal-info {
+            padding: 25px;
+        }
+
+        .animal-info p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .animal-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .animal-feature {
+            background: #f8f9fa;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ===== DESTINATIONS SECTION ===== */
+        .destinations {
+            background: var(--light);
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .destination-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .destination-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .destination-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .destination-card:hover .destination-image img {
+            transform: scale(1.1);
+        }
+
+        .destination-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .destination-name h3 {
+            color: var(--white);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .destination-info {
+            padding: 25px;
+        }
+
+        .destination-info p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .destination-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .destination-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .destination-features li i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== PAYMENT SECTION ===== */
+        .payment-methods {
+            background: var(--white);
+        }
+
+        .payment-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .payment-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-gold);
+            transition: var(--transition);
+        }
+
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-card.selected {
+            border-color: var(--primary);
+            background: #fef9e7;
+        }
+
+        .payment-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .payment-card h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .payment-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .payment-details {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .payment-card.selected .payment-details {
+            display: block;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 80px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--secondary);
+                transition: var(--transition);
+                padding: 40px;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .payment-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .wildlife-grid, .destinations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Security Badge -->
+    <div class="security-badge">
+        <i class="fas fa-shield-alt"></i>
+        <span>Secure Connection</span>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-paw logo-icon"></i>
+                <div class="logo-text">
+                    <h1>HOZA TANZANIA SAFARIS</h1>
+                    <p>Premium Wildlife Experiences</p>
+                </div>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#wildlife">Wildlife</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#payment">Payment</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Experience The Wild Heart of Tanzania</h1>
+            <p>Embark on an unforgettable safari adventure with HOZA TANZANIA SAFARIS. Discover breathtaking landscapes and incredible wildlife in their natural habitat with our premium, secure travel experiences.</p>
+            <div class="hero-btns">
+                <a href="#wildlife" class="btn">Explore Wildlife <i class="fas fa-paw"></i></a>
+                <a href="#destinations" class="btn btn-secondary">Discover Tanzania <i class="fas fa-map-marked-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wildlife Section -->
+    <section class="wildlife" id="wildlife">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tanzania's Iconic Wildlife</h2>
+                <p>Discover the magnificent animals you'll encounter on your Tanzanian safari adventure</p>
+            </div>
+            <div class="wildlife-grid">
+                <div class="animal-card">
+                    <div class="animal-image">
+                        <img src="https://images.unsplash.com/photo-1546182993-3d4c2bc5a0b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="African Lion">
+                        <div class="animal-name">
+                            <h3>African Lion</h3>
+                        </div>
+                    </div>
+                    <div class="animal-info">
+                        <p>The majestic king of the savannah, African lions are social cats that live in prides. Witness their power and grace during your safari in Serengeti and Ngorongoro.</p>
+                        <div class="animal-features">
+                            <span class="animal-feature">Carnivore</span>
+                            <span class="animal-feature">Social Pride</span>
+                            <span class="animal-feature">Nocturnal Hunter</span>
+                        </div>
+                        <a href="#destinations" class="btn">See Lion Safaris</a>
+                    </div>
+                </div>
+                
+                <div class="animal-card">
+                    <div class="animal-image">
+                        <img src="https://images.unsplash.com/photo-1574870111867-089858c139af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Cheetah">
+                        <div class="animal-name">
+                            <h3>Cheetah</h3>
+                        </div>
+                    </div>
+                    <div class="animal-info">
+                        <p>The fastest land animal, cheetahs are built for speed. Watch these elegant predators in action across the Serengeti plains, reaching speeds up to 70 mph.</p>
+                        <div class="animal-features">
+                            <span class="animal-feature">Fastest Animal</span>
+                            <span class="animal-feature">Diurnal Hunter</span>
+                            <span class="animal-feature">Solitary</span>
+                        </div>
+                        <a href="#destinations" class="btn">See Cheetah Safaris</a>
+                    </div>
+                </div>
+                
+                <div class="animal-card">
+                    <div class="animal-image">
+                        <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80" alt="African Elephant">
+                        <div class="animal-name">
+                            <h3>African Elephant</h3>
+                        </div>
+                    </div>
+                    <div class="animal-info">
+                        <p>The largest land animal on Earth, African elephants are intelligent, social creatures that form strong family bonds in Tarangire and Serengeti National Parks.</p>
+                        <div class="animal-features">
+                            <span class="animal-feature">Largest Land Animal</span>
+                            <span class="animal-feature">Highly Social</span>
+                            <span class="animal-feature">Herbivore</span>
+                        </div>
+                        <a href="#destinations" class="btn">See Elephant Safaris</a>
+                    </div>
+                </div>
+                
+                <div class="animal-card">
+                    <div class="animal-image">
+                        <img src="https://images.unsplash.com/photo-1590077428593-a55bb07c4665?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Black Rhino">
+                        <div class="animal-name">
+                            <h3>Black Rhino</h3>
+                        </div>
+                    </div>
+                    <div class="animal-info">
+                        <p>Critically endangered black rhinos can be spotted in Ngorongoro Crater. These solitary browsers are a rare and precious sight on any Tanzanian safari.</p>
+                        <div class="animal-features">
+                            <span class="animal-feature">Endangered</span>
+                            <span class="animal-feature">Solitary</span>
+                            <span class="animal-feature">Browser</span>
+                        </div>
+                        <a href="#destinations" class="btn">See Rhino Safaris</a>
+                    </div>
+                </div>
+                
+                <div class="animal-card">
+                    <div class="animal-image">
+                        <img src="https://images.unsplash.com/photo-1597248887190-6e1e7e5b1d5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Hippopotamus">
+                        <div class="animal-name">
+                            <h3>Hippopotamus</h3>
+                        </div>
+                    </div>
+                    <div class="animal-info">
+                        <p>Despite their bulky appearance, hippos are surprisingly agile in water. Observe them in rivers and lakes during your safari adventure in Selous and Ruaha.</p>
+                        <div class="animal-features">
+                            <span class="animal-feature">Semi-aquatic</span>
+                            <span class="animal-feature">Territorial</span>
+                            <span class="animal-feature">Herbivore</span>
+                        </div>
+                        <a href="#destinations" class="btn">See Hippo Safaris</a>
+                    </div>
+                </div>
+                
+                <div class="animal-card">
+                    <div class="animal-image">
+                        <img src="https://images.unsplash.com/photo-1534188753412-9f0330d4ed32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Masai Giraffe">
+                        <div class="animal-name">
+                            <h3>Masai Giraffe</h3>
+                        </div>
+                    </div>
+                    <div class="animal-info">
+                        <p>The world's tallest land animal, giraffes roam the savannahs of Tanzania. Their distinctive pattern and graceful movements are unforgettable sights.</p>
+                        <div class="animal-features">
+                            <span class="animal-feature">Tallest Animal</span>
+                            <span class="animal-feature">Social</span>
+                            <span class="animal-feature">Browser</span>
+                        </div>
+                        <a href="#destinations" class="btn">See Giraffe Safaris</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations" id="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Must-Visit Tanzanian Destinations</h2>
+                <p>Explore Tanzania's most spectacular national parks and conservation areas</p>
+            </div>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Serengeti National Park">
+                        <div class="destination-name">
+                            <h3>Serengeti National Park</h3>
+                        </div>
+                    </div>
+                    <div class="destination-info">
+                        <p>Home to the Great Migration, where millions of wildebeest and zebras traverse the plains. Experience unparalleled wildlife viewing in Africa's most famous safari destination.</p>
+                        <ul class="destination-features">
+                            <li><i class="fas fa-check"></i> Great Migration</li>
+                            <li><i class="fas fa-check"></i> Big Five Spotting</li>
+                            <li><i class="fas fa-check"></i> Hot Air Balloon Safaris</li>
+                            <li><i class="fas fa-check"></i> Year-round Game Viewing</li>
+                        </ul>
+                        <a href="#payment" class="btn">Book Serengeti Safari</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1623920999492-82d4ce4daf8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Ngorongoro Conservation Area">
+                        <div class="destination-name">
+                            <h3>Ngorongoro Conservation Area</h3>
+                        </div>
+                    </div>
+                    <div class="destination-info">
+                        <p>The world's largest intact volcanic caldera, home to an incredible density of wildlife including the Big Five. Often called "Africa's Garden of Eden."</p>
+                        <ul class="destination-features">
+                            <li><i class="fas fa-check"></i> World's Largest Caldera</li>
+                            <li><i class="fas fa-check"></i> High Wildlife Density</li>
+                            <li><i class="fas fa-check"></i> Big Five in One Place</li>
+                            <li><i class="fas fa-check"></i> Maasai Cultural Experiences</li>
+                        </ul>
+                        <a href="#payment" class="btn">Book Ngorongoro Safari</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Tarangire National Park">
+                        <div class="destination-name">
+                            <h3>Tarangire National Park</h3>
+                        </div>
+                    </div>
+                    <div class="destination-info">
+                        <p>Famous for its large elephant herds and ancient baobab trees. During dry season, Tarangire has one of the highest concentrations of wildlife in Tanzania.</p>
+                        <ul class="destination-features">
+                            <li><i class="fas fa-check"></i> Large Elephant Herds</li>
+                            <li><i class="fas fa-check"></i> Ancient Baobab Trees</li>
+                            <li><i class="fas fa-check"></i> Bird Watching Paradise</li>
+                            <li><i class="fas fa-check"></i> Seasonal Wildlife Concentration</li>
+                        </ul>
+                        <a href="#payment" class="btn">Book Tarangire Safari</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1597225244387-52b61b422655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mount Kilimanjaro">
+                        <div class="destination-name">
+                            <h3>Mount Kilimanjaro</h3>
+                        </div>
+                    </div>
+                    <div class="destination-info">
+                        <p>Africa's highest peak and the world's tallest free-standing mountain. Challenge yourself with a trek to the Roof of Africa through diverse ecological zones.</p>
+                        <ul class="destination-features">
+                            <li><i class="fas fa-check"></i> Africa's Highest Peak</li>
+                            <li><i class="fas fa-check"></i> Multiple Climbing Routes</li>
+                            <li><i class="fas fa-check"></i> Diverse Ecosystems</li>
+                            <li><i class="fas fa-check"></i> UNESCO World Heritage Site</li>
+                        </ul>
+                        <a href="#payment" class="btn">Book Kilimanjaro Trek</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1589556183039-15d6d58a1d6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1112&q=80" alt="Zanzibar Island">
+                        <div class="destination-name">
+                            <h3>Zanzibar Island</h3>
+                        </div>
+                    </div>
+                    <div class="destination-info">
+                        <p>The Spice Island with pristine beaches, rich history, and vibrant culture. Perfect combination with safari for relaxation and cultural immersion.</p>
+                        <ul class="destination-features">
+                            <li><i class="fas fa-check"></i> Pristine White Sand Beaches</li>
+                            <li><i class="fas fa-check"></i> Stone Town UNESCO Site</li>
+                            <li><i class="fas fa-check"></i> Spice Tours</li>
+                            <li><i class="fas fa-check"></i> Snorkeling & Diving</li>
+                        </ul>
+                        <a href="#payment" class="btn">Book Zanzibar Trip</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Lake Manyara National Park">
+                        <div class="destination-name">
+                            <h3>Lake Manyara National Park</h3>
+                        </div>
+                    </div>
+                    <div class="destination-info">
+                        <p>Known for its tree-climbing lions and flamingo-filled alkaline lake. A compact park with surprising diversity located at the base of the Great Rift Valley.</p>
+                        <ul class="destination-features">
+                            <li><i class="fas fa-check"></i> Tree-Climbing Lions</li>
+                            <li><i class="fas fa-check"></i> Flamingo Populations</li>
+                            <li><i class="fas fa-check"></i> Groundwater Forest</li>
+                            <li><i class="fas fa-check"></i> Great Rift Valley Views</li>
+                        </ul>
+                        <a href="#payment" class="btn">Book Manyara Safari</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="payment-methods" id="payment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Secure Payment Options</h2>
+                <p>We offer multiple payment methods to make booking your safari convenient and secure</p>
+            </div>
+            
+            <div class="payment-container">
+                <div class="payment-options">
+                    <!-- Credit/Debit Card -->
+                    <div class="payment-card selected" data-payment="card">
+                        <div class="payment-icon" style="color: #1a472a;">
+                            <i class="far fa-credit-card"></i>
+                        </div>
+                        <h3>Credit/Debit Card</h3>
+                        <p>Pay securely with Visa, MasterCard, or American Express</p>
+                        <div class="payment-details">
+                            <p>Secure online payment processed through our trusted payment gateway. All transactions are encrypted and PCI DSS compliant.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- M-Pesa -->
+                    <div class="payment-card" data-payment="mpesa">
+                        <div class="payment-icon" style="color: #00A650;">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>M-Pesa</h3>
+                        <p>Tanzania's most popular mobile money service</p>
+                        <div class="payment-details">
+                            <p><strong>Business Number:</strong> 0755 123 456</p>
+                            <p><strong>Account Name:</strong> HOZA TANZANIA SAFARIS</p>
+                            <p>Instant payment confirmation via SMS</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Tigo Pesa -->
+                    <div class="payment-card" data-payment="tigo">
+                        <div class="payment-icon" style="color: #FF6600;">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Tigo Pesa</h3>
+                        <p>Fast and secure payments with Tigo's mobile money</p>
+                        <div class="payment-details">
+                            <p><strong>Business Number:</strong> 0715 789 012</p>
+                            <p><strong>Account Name:</strong> HOZA TANZANIA SAFARIS</p>
+                            <p>24/7 payment processing available</p>
+                        </div>
+                    </div>
+                    
+                    <!-- NMB Bank -->
+                    <div class="payment-card" data-payment="nmb">
+                        <div class="payment-icon" style="color: #1a472a;">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>NMB Bank Transfer</h3>
+                        <p>Direct transfer to our NMB bank account</p>
+                        <div class="payment-details">
+                            <p><strong>Bank Name:</strong> NMB Bank Tanzania</p>
+                            <p><strong>Account Number:</strong> 0123456789012</p>
+                            <p><strong>Account Name:</strong> HOZA TANZANIA SAFARIS</p>
+                            <p><strong>Branch:</strong> Arusha Main Branch</p>
+                        </div>
+                    </div>
+                    
+                    <!-- CRDB Bank -->
+                    <div class="payment-card" data-payment="crdb">
+                        <div class="payment-icon" style="color: #1a472a;">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>CRDB Bank Transfer</h3>
+                        <p>Direct transfer to our CRDB bank account</p>
+                        <div class="payment-details">
+                            <p><strong>Bank Name:</strong> CRDB Bank Tanzania</p>
+                            <p><strong>Account Number:</strong> 0156789012345</p>
+                            <p><strong>Account Name:</strong> HOZA TANZANIA SAFARIS</p>
+                            <p><strong>Branch:</strong> Arusha Central Branch</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Airtel Money -->
+                    <div class="payment-card" data-payment="airtel">
+                        <div class="payment-icon" style="color: #FF0000;">
+                            <i class="fas fa-signal"></i>
+                        </div>
+                        <h3>Airtel Money</h3>
+                        <p>Convenient payment through Airtel's mobile money</p>
+                        <div class="payment-details">
+                            <p><strong>Business Number:</strong> 0685 456 789</p>
+                            <p><strong>Account Name:</strong> HOZA TANZANIA SAFARIS</p>
+                            <p>Secure and instant payment processing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>HOZA TANZANIA SAFARIS</h3>
+                    <p>Creating unforgettable safari experiences in Tanzania's most spectacular wilderness areas since 2008.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#wildlife"><i class="fas fa-chevron-right"></i> Wildlife</a></li>
+                        <li><a href="#destinations"><i class="fas fa-chevron-right"></i> Destinations</a></li>
+                        <li><a href="#payment"><i class="fas fa-chevron-right"></i> Payment Methods</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Arusha, Tanzania</a></li>
+                        <li><a href="tel:+255789456123"><i class="fas fa-phone"></i> +255 789 456 123</a></li>
+                        <li><a href="mailto:info@hozatanziasafaris.com"><i class="fas fa-envelope"></i> info@hozatanziasafaris.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Mon - Sun: 8:00 AM - 8:00 PM</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Payment Methods</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="far fa-credit-card"></i> Credit/Debit Cards</a></li>
+                        <li><a href="#"><i class="fas fa-mobile-alt"></i> M-Pesa</a></li>
+                        <li><a href="#"><i class="fas fa-bolt"></i> Tigo Pesa</a></li>
+                        <li><a href="#"><i class="fas fa-university"></i> Bank Transfer (NMB/CRDB)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 HOZA TANZANIA SAFARIS. All Rights Reserved. | <a href="#" style="color: rgba(255,255,255,0.8);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.8);">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+        
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Payment Method Selection
+        const paymentCards = document.querySelectorAll('.payment-card');
+        
+        paymentCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove selected class from all cards
+                paymentCards.forEach(c => c.classList.remove('selected'));
+                
+                // Add selected class to clicked card
+                card.classList.add('selected');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Security badge animation
+        const securityBadge = document.querySelector('.security-badge');
+        setInterval(() => {
+            securityBadge.style.animation = 'none';
+            setTimeout(() => {
+                securityBadge.style.animation = 'pulse 2s infinite';
+            }, 10);
+        }, 5000);
+    </script>
+</body>
+</html>
